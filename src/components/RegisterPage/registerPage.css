@@ -1,0 +1,27 @@
+.firstcss{
+    display: flex;
+    border: 1px solid white;
+    padding: 20px;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.fontstyle{
+    font-size: 15px;
+    font-family: monospace;
+}
+
+.firstnameline{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.back{
+    font-size: small;
+    text-align: center;
+    color: blueviolet;
+    cursor: pointer;
+}
