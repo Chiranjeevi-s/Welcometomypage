@@ -1,8 +1,6 @@
 import { Button, InputBase, makeStyles } from '@material-ui/core'
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-// import { toast } from 'react-toastify'
-// import CustomTextField from '../../CustomComponents/CustomTextField'
 import './registerPage.css'
 
 const useStyle = makeStyles((theme) => ({

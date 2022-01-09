@@ -6,8 +6,6 @@ import { Switch } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import LogInPage from '../LogInPage'
 import RegistrationSuccess from '../RegistrationSuccess'
-// import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
-// import { BrowserRouter, Switch, Route } from 'react-router-dom/cjs/react-router-dom.min'
 
 const InitialPage = () => {
     return (

@@ -7,7 +7,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import rootReducer from './RootReducer/rootReducer';
 import { createStore } from 'redux';
-// import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
 const store = createStore(rootReducer)
 
