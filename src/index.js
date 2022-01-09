@@ -4,14 +4,21 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import InitialPage from './components/InitialPage';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import rootReducer from './RootReducer/rootReducer';
+import { createStore } from 'redux';
 // import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 
+const store = createStore(rootReducer)
+
 ReactDOM.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <InitialPage />
-    </React.StrictMode>,
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <React.StrictMode>
+        <InitialPage />
+      </React.StrictMode>
+    </BrowserRouter>
+   </Provider>,
   document.getElementById('root')
 );
 
