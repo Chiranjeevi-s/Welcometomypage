@@ -1,4 +1,6 @@
 import { Button, InputBase, makeStyles } from '@material-ui/core'
+import axios from 'axios'
+
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import './registerPage.css'
@@ -16,10 +18,26 @@ const RegistePage = (props) => {
     const classes = useStyle()
     const dispatch = useDispatch()
     const [firstName, setFirstName] = useState('')
-    
+    const [lastName, setLastName] = useState('')
+    const [email, setEmail] = useState('')
+    const [number, setNumber] = useState('')
+    const [password, setPassword] = useState('')
+
     const signUp = () => {
-        dispatch({type:'Name', data: firstName})
+        dispatch({ type: 'Name', data: firstName })
         props.history.push('./loginIn/success')
+        debugger
+        if(firstName && lastName && email && number){
+            axios.post('http://localhost:8000/loginIn/success', {
+                fname: firstName,
+                lname: lastName,
+                email: email,
+                phone: number,
+                password: password,
+            }).then(() =>{
+                alert("sent success")
+            })
+        }
     }
     const backPage = () => {
         props.history.push('/')
@@ -35,19 +53,19 @@ const RegistePage = (props) => {
             </div>
             <div className='firstnameline'>
                 <span className='fontstyle'>Last Name :</span>
-                <InputBase variant='outlined' InputProps={{ inputProps: { style: { padding: '0px', height: '40px' } } }} className={classes.textfield} />
+                <InputBase variant='outlined' value={lastName} onChange={(e) => setLastName(e.target.value)} InputProps={{ inputProps: { style: { padding: '0px', height: '40px' } } }} className={classes.textfield} />
             </div>
             <div className='firstnameline'>
                 <span className='fontstyle'>E-Mail :</span>
-                <InputBase variant='outlined' InputProps={{ inputProps: { style: { padding: '0px', height: '40px' } } }} className={classes.textfield} />
+                <InputBase variant='outlined' value={email} onChange={(e) => setEmail(e.target.value)} InputProps={{ inputProps: { style: { padding: '0px', height: '40px' } } }} className={classes.textfield} />
             </div>
             <div className='firstnameline'>
                 <span className='fontstyle'>Phone Number :</span>
-                <InputBase variant='outlined' InputProps={{ inputProps: { style: { padding: '0px', height: '40px' } } }} className={classes.textfield} />
+                <InputBase variant='outlined' value={number} onChange={(e) => { setNumber(e.target.value) }} InputProps={{ inputProps: { style: { padding: '0px', height: '40px' } } }} className={classes.textfield} />
             </div>
             <div className='firstnameline'>
                 <span className='fontstyle'>Choose Password :</span>
-                <InputBase variant='outlined' InputProps={{ inputProps: { style: { padding: '0px', height: '40px' } } }} className={classes.textfield} />
+                <InputBase variant='outlined' vaulr={password} onChange={(e) => setPassword(e.target.value)} InputProps={{ inputProps: { style: { padding: '0px', height: '40px' } } }} className={classes.textfield} />
             </div>
             <Button variant="contained" onClick={signUp}>Sign-up</Button>
             <span className='back' onClick={backPage}> Back to main page</span>
