@@ -29,6 +29,16 @@ app.post('/loginIn/success',(req, res) => {
     })
 })
 
+app.get('/logiIn/fetch', (req, res) => {
+    const getData = "SELECT * FROM sign_up"
+
+    db.query(getData, (err, result) => {
+        res.send(result)
+    }
+
+    )
+})
+
 app.listen(8000, () => {
     console.log('connected to port 8000')
 })
